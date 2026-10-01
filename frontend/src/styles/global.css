@@ -28,6 +28,8 @@ body { margin: 0; background: #f6f8fb; color: #1f2937; }
 .empty-state { text-align: center; color: var(--muted); }
 .row-actions { display: flex; gap: 6px; }
 .btn { border: 1px solid var(--border); background: #fff; border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+a.btn { display: inline-flex; align-items: center; text-decoration: none; color: #1f2937; font-size: 13px; }
+a.btn.primary { color: #fff; }
 .btn.primary { background: var(--brand); border-color: var(--brand); color: #fff; }
 .btn.ghost { background: transparent; }
 .link { border: none; background: none; color: var(--brand); cursor: pointer; padding: 0; }

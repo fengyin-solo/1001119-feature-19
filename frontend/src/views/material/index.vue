@@ -6,7 +6,8 @@
         <p class="page-desc">维护养护材料，围绕材料编号、材料名称、材料类别、规格型号做登记、筛选与状态流转。</p>
       </div>
       <div class="page-actions">
-        <button class="btn primary" type="button" @click="openCreate">登记养护材料</button>
+        <RouterLink class="btn primary" to="/grant">项目领用授权柜</RouterLink>
+        <button class="btn" type="button" @click="openCreate">登记养护材料</button>
         <button class="btn" type="button" @click="exportRows">导出养护材料清单</button>
       </div>
     </header>
