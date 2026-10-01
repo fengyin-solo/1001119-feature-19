@@ -7,13 +7,24 @@ from __future__ import annotations
 from typing import Any
 
 from app.seed import SEED_ROWS
+from app.seed_auth import AUTH_ROWS, REPLACEMENTS
 
 
 class Store:
     def __init__(self) -> None:
-        self._tables: dict[str, list[dict[str, Any]]] = {
+        merged: dict[str, list[dict[str, Any]]] = {
             name: [dict(row) for row in rows] for name, rows in SEED_ROWS.items()
         }
+        # 授权柜相关模块用贴近业务的数据整体替换占位种子
+        for name, rows in REPLACEMENTS.items():
+            merged[name] = [dict(row) for row in rows]
+        for name, rows in AUTH_ROWS.items():
+            merged[name] = [dict(row) for row in rows]
+        self._tables: dict[str, list[dict[str, Any]]] = merged
+
+    def next_id(self, module: str) -> int:
+        """给指定模块分配下一个自增主键。"""
+        return max((int(row.get("id", 0)) for row in self.rows(module)), default=0) + 1
 
     def module_names(self) -> list[str]:
         return sorted(self._tables)

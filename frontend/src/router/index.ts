@@ -19,6 +19,7 @@ const Bearing = () => import('@/views/bearing/index.vue')
 const Project = () => import('@/views/project/index.vue')
 const Vehicle = () => import('@/views/vehicle/index.vue')
 const Material = () => import('@/views/material/index.vue')
+const AuthCabinet = () => import('@/views/auth_cabinet/index.vue')
 
 const router = createRouter({
   history: createWebHistory(),
@@ -42,6 +43,7 @@ const router = createRouter({
     { path: '/project', name: 'project', component: Project },
     { path: '/vehicle', name: 'vehicle', component: Vehicle },
     { path: '/material', name: 'material', component: Material },
+    { path: '/auth_cabinet', name: 'auth_cabinet', component: AuthCabinet },
   ],
 })
 
